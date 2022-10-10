@@ -1,5 +1,5 @@
 const express = require("express");
-const axios = require("axios");
+
 const db = require("../models");
 const apiRouter = express.Router();
 //const bcrypt = require("bcrypt");
@@ -23,21 +23,29 @@ const getAllQuotes = async (_, res) => {
 };
 
 const AddQuotes = async (req, res) => {
-  try {
-    const payload = req.body;
+  //console.log(req.query.api_key);
 
-    await db.bibleQuote.create({
-      title: payload.title,
-      content: payload.content,
+  if (req.query.api_key !== "Ut{wS?+GkKtky:SY") {
+    res.status(400).json({
+      message: "Wrong API Key",
     });
+  } else {
+    try {
+      const payload = req.body;
 
-    res.json({
-      success: true,
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+      await db.bibleQuote.create({
+        title: payload.title,
+        content: payload.content,
+      });
+
+      res.json({
+        success: true,
+      });
+    } catch (error) {
+      res.status(500).json({
+        error: error.message,
+      });
+    }
   }
 };
 

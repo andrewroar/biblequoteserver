@@ -7,25 +7,23 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/surajverma2587/google-books-server.git"
-  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/surajverma2587/google-books-server/issues"
-  },
-  "homepage": "https://github.com/surajverma2587/google-books-server#readme",
+
   "dependencies": {
+    "api-key-auth": "^0.2.3",
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0",
+    "helmet": "^4.3.1",
     "mongoose": "^5.11.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.7"
   }
 }
